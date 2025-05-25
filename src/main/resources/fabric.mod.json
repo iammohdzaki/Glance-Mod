@@ -1,0 +1,51 @@
+{
+	"schemaVersion": 1,
+	"id": "glance-mod",
+	"version": "${version}",
+	"name": "Glance Mod",
+	"description": "A modular HUD mod displaying in-game time, day count, and coordinates.",
+	"authors": [
+		"Zaki"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/glance-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.zaki.glance.GlanceMod",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.zaki.glance.GlanceModClient",
+				"adapter": "kotlin"
+			}
+		],
+		"modmenu": [
+			"com.zaki.glance.config.GlanceModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"glance-mod.mixins.json",
+		{
+			"config": "glance-mod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
